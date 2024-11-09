@@ -1,0 +1,13 @@
+#!/usr/bin/env bash
+
+echo -e "\e[32mHacking in progress... (Press Ctrl+C to stop)\e[0m"
+while true; do
+    SEED=$(date +%N)
+    RANDOM=$SEED
+    if (( RANDOM % 2 )); then
+        echo -e "\e[32mAccess granted: $RANDOM$RANDOM$RANDOM$RANDOM\e[0m"
+    else
+        echo -e "\e[31mAccess denied: $RANDOM$RANDOM$RANDOM$RANDOM\e[0m"
+    fi
+    sleep 0.05
+done

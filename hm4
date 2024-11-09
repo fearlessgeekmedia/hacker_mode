@@ -1,0 +1,16 @@
+#!/usr/bin/env bash
+
+echo -e "\e[32mHacking in progress... (Press Ctrl+C to stop)\e[0m"
+while true; do
+    SEED=$(date +%N | sed 's/^0*//')  # Strip leading zeroes if any
+    RANDOM=$SEED
+    echo -n -e "\e[34mDownloading file: "
+    for i in {1..30}; do
+        echo -n "#"
+        sleep 0.02
+    done
+    echo -e " [100%]\e[0m"
+    printf "\e[32m%d%d%d%d%d%d%d%d \e[0m\n" $RANDOM $RANDOM $RANDOM $RANDOM $RANDOM $RANDOM $RANDOM $RANDOM
+    sleep 0.05
+done
+

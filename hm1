@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+echo "Hacking in progress... (Press Ctrl+C to stop)"
+while true; do
+   # Generate a new seed based on the current nanosecond timer
+   SEED=$(date +%N)
+   RANDOM=$SEED
+   echo $RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM | grep --color=auto '[0-9]' | nms -a
+   sleep 0.05
+done

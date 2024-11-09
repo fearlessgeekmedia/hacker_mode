@@ -1,0 +1,9 @@
+#!/usr/bin/env bash
+
+echo -e "\e[32mHacking in progress... (Press Ctrl+C to stop)\e[0m"
+while true; do
+    SEED=$(date +%N)
+    RANDOM=$SEED
+    echo -e "\e[32m$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM$RANDOM\e[0m" | grep --color=auto '[0-9]' | nms -a
+    sleep 0.05
+done
