@@ -1,0 +1,83 @@
+#!/usr/bin/env bash
+
+# Define color codes using tput
+COLOR_RESET=$(tput sgr0)
+COLOR_GREEN=$(tput setaf 2)
+COLOR_RED=$(tput setaf 1)
+COLOR_YELLOW=$(tput setaf 3)
+COLOR_CYAN=$(tput setaf 6)
+COLOR_BOLD=$(tput bold)
+COLOR_BG_BLUE=$(tput setab 4)
+COLOR_BG_BLACK=$(tput setab 0)
+COLOR_BG_RED=$(tput setab 1)
+
+# Define a function to generate random IP addresses
+generate_random_ip() {
+  echo "$(( RANDOM % 256 )).$(( RANDOM % 256 )).$(( RANDOM % 256 )).$(( RANDOM% 256 ))"
+}
+
+# Define a function to generate random passwords
+generate_random_password() {
+  tr -dc A-Za-z0-9 < /dev/urandom | head -c 12
+}
+
+# Loop to simulate hacking attempts
+while true; do
+  clear
+  # Display your custom Guy Fawkes mask ASCII art without background color
+  echo "${COLOR_BOLD}"
+  cat << "EOF"
+        ..:-=+++****+++=-::.       
+   -+*#%%%%%%%%%%%%%%%%%%%%%#=.   
+  *%%%%%%%%%%%%%%%%%%%%%%%%%%%%:  
+ -%%@%%%%%@@%%%%%%%%%%@@%%%%@%%%. 
+ #%%+-:::-+#@@%%%%%@@%*-::::=#%%* 
+.%%*****+-:.:*%%%%%#=..-=**#**%%%.
+-%%%@@@@@@@#==%%%%@*-*%@@@@@@@%%%-
+=@%@@#*+==+*#%%%%%%%%#*+++*#@@%%@=
++*#*=-:.    .*%%%%%%-.    .--*###+
++#%###*+++**#%%%%%%%#**++++***#%%+
+=%%%%##%%@@@@%#%%%%%@@@@@%%#%%%%%-
+-%%%####%%%%%%%%%%%%%%%%%#####%%%.
+.%%%%%%#%##%%%%%%@%%%%%#%%%%#%%%# 
+ #%*#:=@%%%%%*#%%%#*%@%%%@#:+##%= 
+ -%%** -%%%%%+  =: :#%%%%+ =#*%%. 
+  #@%#*::....  =%#:  .....*##%%+  
+  :%@%#%%####******+*##%%%##%%#   
+   :#%%#%%@@@@@***%@@@@@%#%@%*.   
+     =%%%%%%%%@+ .%%%%%%%%%%=     
+      .+%%%%%%@=  %@%%%%%%+.      
+        :*%%%%@-  #%%%%%=.        
+          :*%%@# :@%%*-           
+            .-+*:=+-.             
+EOF
+  echo "${COLOR_RESET}"
+  sleep 1
+
+  # Simulate network probing with random IP
+  TARGET_IP=$(generate_random_ip)
+  echo "${COLOR_YELLOW}Probing target network...${COLOR_RESET}"
+  sleep 2
+  echo "${COLOR_CYAN}Target identified: $TARGET_IP${COLOR_RESET}"
+  sleep 2
+
+  # Simulate fake breach attempt with random password
+  echo "${COLOR_RED}Attempting access with default credentials...${COLOR_RESET}"
+  sleep 3
+  RANDOM_PASSWORD=$(generate_random_password)
+  echo "${COLOR_RED}Access denied. Attempting brute force attack...${COLOR_RESET}"
+  sleep 3
+  echo "${COLOR_GREEN}Password cracked: ${COLOR_BG_RED}'$RANDOM_PASSWORD'${COLOR_RESET}"
+  sleep 2
+
+  # Simulating data extraction process
+  echo "${COLOR_YELLOW}Extracting confidential data...${COLOR_RESET}"
+  sleep 3
+  echo "${COLOR_GREEN}Data extracted: Server Logs, User Information, Company Secrets${COLOR_RESET}"
+  sleep 2
+
+  echo "${COLOR_BG_BLACK}${COLOR_BOLD}Operation complete. Disconnecting from network.${COLOR_RESET}"
+  echo ""
+  sleep 3
+done
+
